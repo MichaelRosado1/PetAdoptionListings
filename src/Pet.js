@@ -3,6 +3,7 @@ import React from 'react';
 //normal function
 //destructoring the object passed into the function
 export default function Pet ({ name, animal, breed }) {
+    const x = name.toUpperCase();
   //returns a segment of html enclosed in a div
 //   return React.createElement("div", {}, [
 //     //creates h1 tag with name, breed, and animal properties

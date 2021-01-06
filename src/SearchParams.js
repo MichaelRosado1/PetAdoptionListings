@@ -1,15 +1,27 @@
 //import react
-import React, { useState } from 'react';
-import { ANIMALS } from '@frontendmasters/pet';
+import React, { useState, useEffect } from 'react';
+import pet, { ANIMALS } from '@frontendmasters/pet';
+import useDropdown from './useDropdown';
 
 //declare an arrow function called SearchParams
 const SearchParams = () => {
     //destructuring the usestate object
     //first item is always state and second is updater function
     const [location, setLocation] = useState("Chicago, IL");
-    const [animal, setAnimal] = useState("dog");
-    const [breed, setBreed] = useState("");
+    const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS); 
+    const [breed, BreedDropdown, setBreed] = useDropdown("Breed", "", breeds);
     const [breeds, setBreeds] = useState([]);
+
+    //runs whenever breed changes
+    useEffect(() => {
+        setBreeds([]);
+        setBreed("");
+
+        pet.breeds(animal).then(({ breeds }) => {
+            const breedStrings = breeds.map(({ name}) => name);
+            setBreeds(breedStrings);
+        }, console.error)
+    }, [animal, setBreed, setBreeds]);
 
     //return the html elements to display
     return (
