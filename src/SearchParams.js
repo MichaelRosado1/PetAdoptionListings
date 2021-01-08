@@ -44,6 +44,11 @@ const SearchParams = () => {
                         onChange={e => setAnimal(e.target.value)}
                         onBlur={e => setAnimal(e.target.value)}>
                         <option>All</option>
+                        {ANIMALS.map(animal => (
+                            <option key={animal} value={animal}>
+                                {animal}
+                            </option>
+                        ))}
                     </select>
                 </label>
                 <label htmlFor="breed">
@@ -64,7 +69,7 @@ const SearchParams = () => {
                 <button>Submit</button>
             </form> 
         </div>
-    )
+    ) 
 }
 
 //if no specific functions are 'requested' export the entire class
