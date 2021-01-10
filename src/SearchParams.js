@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import pet, { ANIMALS } from "@frontendmasters/pet";
 import useDropdown from "./useDropdown";
+import Results from './Results';
 const regeneratorRuntime = require("regenerator-runtime");
 
 const SearchParams = () => {
@@ -55,6 +56,7 @@ const SearchParams = () => {
         <BreedDropdown />
         <button>Submit</button>
       </form>
+      <Results pets={pets} />
     </div>
   );
 };
