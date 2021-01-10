@@ -5,7 +5,7 @@ import Results from './Results';
 const regeneratorRuntime = require("regenerator-runtime");
 
 const SearchParams = () => {
-  const [location, updateLocation] = useState("Chicago, IL");
+  const [location, updateLocation] = useState("Seattle, WA");
   const [breeds, updateBreeds] = useState([]);
   const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
   const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);

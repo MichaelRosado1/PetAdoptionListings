@@ -1,23 +1,22 @@
 import React from 'react';
 
-//normal function
-//destructoring the object passed into the function
-export default function Pet ({ name, animal, breed }) {
-    const x = name.toUpperCase();
-  //returns a segment of html enclosed in a div
-//   return React.createElement("div", {}, [
-//     //creates h1 tag with name, breed, and animal properties
-//     //very similar to an array of elements
-//     React.createElement("h1", {}, name),
-//     React.createElement("h1", {}, breed),
-//     React.createElement("h1", {}, animal),
-//   ]);
+export default function Pet({ name, animal, breed, media, location, id }) {
+
+    let hero = 'http://placecorgi.com/300/300';
+    
+    if (media.length) {
+        hero = media[0].small;
+    }
 
     return (
-        <div>
-            <h1>{name}</h1>
-            <h2>{animal}</h2>
-            <h3>{breed}</h3>
-        </div>
+        <a href={`/details/${id}`} className="pet">
+            <div className="image-container">
+                <img src={hero} alt={name}></img>
+            </div>
+            <div className="info">
+                <h1>{name}</h1>
+                <h2>{`${animal} - ${breed} - ${location}`}</h2>
+            </div>
+        </a>
     )
-};
+}
