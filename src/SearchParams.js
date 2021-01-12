@@ -8,8 +8,8 @@ const regeneratorRuntime = require("regenerator-runtime");
 const SearchParams = () => {
   const [location, updateLocation] = useState("Seattle, WA");
   const [breeds, updateBreeds] = useState([]);
-  const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
-  const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
+  // const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
+  // const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
   const [pets, setPets] = useState([]);
   const [theme, setTheme] = useContext(ThemeContext);
 
@@ -32,6 +32,7 @@ const SearchParams = () => {
 
   useEffect(() => {
     updateBreeds([]);
+    setCurrentBreed("");
     updateBreed("");
     pet.breeds(animal).then(({ breeds }) => {
       const breedStrings = breeds.map(({ name }) => name);
