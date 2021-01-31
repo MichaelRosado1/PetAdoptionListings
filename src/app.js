@@ -5,7 +5,6 @@ import SearchParams from './SearchParams';
 import { Link, Router } from "@reach/router";
 import Details from './Details';
 import useDropdown from './useDropdown';
-import SearchChoiceContext from './SearchChoiceContext';
 import pet, { ANIMALS } from "@frontendmasters/pet";
 
 //app function
@@ -23,7 +22,6 @@ import pet, { ANIMALS } from "@frontendmasters/pet";
   return (
     <React.StrictMode>
       <ThemeContext.Provider value={themeHook}>
-        <SearchChoiceContext.Provider value={choiceHook}>
           <div>
             <header>
               <Link to="/">
@@ -36,7 +34,6 @@ import pet, { ANIMALS } from "@frontendmasters/pet";
               <Details path="/details/:id" />
             </Router>
           </div>
-        </SearchChoiceContext.Provider>
       </ThemeContext.Provider>
     </React.StrictMode>
   )

@@ -58,7 +58,7 @@ class Details extends React.Component {
                         )}
                     </ThemeContext.Consumer>
                    <p>{description}</p>
-                   <button>Go back to previous listings</button>
+                   <BackToPreviousListings />
                    {
                        showModal ? (
                            <Modal>

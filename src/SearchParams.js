@@ -3,16 +3,16 @@ import pet, { ANIMALS } from "@frontendmasters/pet";
 import useDropdown from "./useDropdown";
 import Results from './Results';
 import ThemeContext from './ThemeContext';
+import SearchChoiceContext from "./SearchChoiceContext";
 const regeneratorRuntime = require("regenerator-runtime");
 
 const SearchParams = () => {
   const [location, updateLocation] = useState("Seattle, WA");
   const [breeds, updateBreeds] = useState([]);
-  // const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
-  // const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
+  const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
+  const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
   const [pets, setPets] = useState([]);
   const [theme, setTheme] = useContext(ThemeContext);
-
   const requestPets = async () => {
     //destructure the promise object
     try {
@@ -24,6 +24,7 @@ const SearchParams = () => {
 
       setPets(animals || []);
 
+
     } catch (e) {
       console.error(e);
     }
@@ -32,7 +33,6 @@ const SearchParams = () => {
 
   useEffect(() => {
     updateBreeds([]);
-    setCurrentBreed("");
     updateBreed("");
     pet.breeds(animal).then(({ breeds }) => {
       const breedStrings = breeds.map(({ name }) => name);
@@ -72,7 +72,7 @@ const SearchParams = () => {
         </label>
         <button style={{ backgroundColor: theme }}>Submit</button>
       </form>
-      <Results pets={pets} />
+      <Results requestFunc={requestPets} animal={animal} breed={breed} pets={pets} />
     </div>
   );
 };
