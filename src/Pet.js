@@ -11,6 +11,7 @@ export default function Pet({ name, animal, breed, media, location, id }) {
 
     return (
         <Link to={`/details/${id}`} className="pet">
+            {console.log(id)}
             <div className="image-container">
                 <img src={hero} alt={name}></img>
             </div>

@@ -72,7 +72,7 @@ const SearchParams = () => {
         </label>
         <button style={{ backgroundColor: theme }}>Submit</button>
       </form>
-      <Results requestFunc={requestPets} animal={animal} breed={breed} pets={pets} />
+      <Results  animal={animal} breed={breed} pets={pets} />
     </div>
   );
 };

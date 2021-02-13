@@ -30,7 +30,6 @@ import pet, { ANIMALS } from "@frontendmasters/pet";
             </header>
           <Router>
               <SearchParams path="/" />
-              <Details path="/details/1" />
               <Details path="/details/:id" />
             </Router>
           </div>
